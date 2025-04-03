@@ -103,18 +103,19 @@ header {
 .cta-button {
     display: inline-block;
     padding: 12px 30px;
-    background: transparent;
+    background: #e7943c;
     color: white;
     border: 2px solid white;
     border-radius: 50px;
     font-weight: 600;
     text-decoration: none;
     margin-top: 15px;
+    transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-    background: white;
-    color: #333;
+    background: blue;
+    border-color: #e73c7e;
 }
 
 .hero-social-links {
@@ -134,6 +135,7 @@ header {
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 .hero-social-links a:hover {
@@ -226,11 +228,16 @@ header {
 }
 
 .tag {
-    background: #e73c7e;
+    background: #ee7752;
     color: white;
     padding: 8px 16px;
     border-radius: 50px;
     font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: #e73c7e;
 }
 
 .download-btn {
@@ -238,11 +245,16 @@ header {
     align-items: center;
     gap: 8px;
     padding: 12px 25px;
-    background: linear-gradient(to right, #ee7752, #e73c7e);
+    background: #ee7752;
     color: white;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #e73c7e;
 }
 
 /* Resume Download Section */
@@ -416,6 +428,7 @@ header {
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
 }
 
 .card:hover {
@@ -430,10 +443,15 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right, #ee7752, #e73c7e);
+    background: #ee7752;
     color: white;
     border-radius: 50%;
     font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+.card:hover .card-icon {
+    background: #e73c7e;
 }
 
 /* Projects Section */
@@ -452,16 +470,17 @@ header {
 
 .filter-btn {
     padding: 10px 20px;
-    background: #f0f0f0;
+    background: #ee7752;
+    color: white;
     border: none;
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .filter-btn.active, .filter-btn:hover {
-    background: linear-gradient(to right, #ee7752, #e73c7e);
-    color: white;
+    background: #e73c7e;
 }
 
 .project-grid {
@@ -475,6 +494,7 @@ header {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
 }
 
 .project-img {
@@ -501,6 +521,7 @@ header {
     justify-content: center;
     gap: 20px;
     opacity: 0;
+    transition: all 0.3s ease;
 }
 
 .project-card:hover .project-links {
@@ -517,6 +538,11 @@ header {
     align-items: center;
     justify-content: center;
     background: rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+}
+
+.project-links a:hover {
+    background: rgba(255,255,255,0.3);
 }
 
 .project-info {
@@ -584,12 +610,17 @@ header {
     align-items: center;
     gap: 10px;
     padding: 12px 25px;
-    background: linear-gradient(to right, #ee7752, #e73c7e);
+    background: #ee7752;
     color: white;
     border: none;
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #e73c7e;
 }
 
 /* Footer */
@@ -637,6 +668,7 @@ footer {
 .footer-links a {
     color: #ddd;
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .footer-links a:hover {
@@ -658,6 +690,7 @@ footer {
     align-items: center;
     justify-content: center;
     background: rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
 }
 
 .footer-social a:hover {
@@ -670,7 +703,59 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Responsive Styles */
+/* Mobile Responsiveness Fixes */
+@media (max-width: 768px) {
+  /* Fix timeline layout */
+  .timeline::before {
+    display: none;
+  }
+  
+  .timeline-date {
+    position: relative;
+    left: 0;
+    margin-bottom: 15px;
+  }
+
+  .timeline-content {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  /* Fix skill bars */
+  .skill-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Fix certification badges */
+  .badges-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .badge-item {
+    width: 80px;
+    margin: 10px;
+  }
+
+  .badge-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Fix text overflow */
+  .hero-title, .hero-subtitle, .section-title {
+    font-size: 1.8rem;
+    word-wrap: break-word;
+  }
+
+  /* Adjust padding */
+  .container, .hero, section {
+    padding: 20px;
+  }
+}
+
 @media (max-width: 992px) {
     .about-content {
         flex-direction: column;
@@ -683,57 +768,6 @@ footer {
     
     .contact-container {
         grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-    
-    .nav-links {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: #222;
-        flex-direction: column;
-        align-items: center;
-        padding: 40px 0;
-        transition: left 0.3s ease;
-    }
-    
-    .nav-links.active {
-        left: 0;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .timeline::before {
-        display: none;
-    }
-    
-    .timeline-date {
-        left: 0;
-        transform: none;
-        margin-bottom: 15px;
-    }
-    
-    .timeline-content {
-        width: 100%;
-        margin-left: 0 !important;
-    }
-    
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-container {
-        flex-direction: column;
-        gap: 30px;
     }
 }
 
